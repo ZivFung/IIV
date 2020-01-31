@@ -9,7 +9,13 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
-            "args": [],
+            "args": [
+                "-f0",
+                "-v1_IIV.mp4",
+                "-m0.8",
+                "-n0.8",
+                "-s8"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
