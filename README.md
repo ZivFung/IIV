@@ -13,12 +13,13 @@ As for zoomin function, the formula of IIV is still `sin(Π*x)/Π*x`
 >Interpolation algorithm's zoomin effect is much worse than super-resolution algorithm.
 
 # Compare the IIV with openCV resize function in zoomout condition
-I choose a video with 1920*1080 size, 30FPS to do the experiment. The zoomout sacle for both the vertical and horizontal is 0.2. The window size of opencv lanzcos and IIV is both 8*8. This is the result of opencv lanczos4 and IIV.  
+I choose a video with 1920*1080 size, 30FPS to do the experiment. The zoomout sacle for both the vertical and horizontal is 0.2. The window size of opencv lanzcos and IIV is both 8 * 8. This is the result of opencv lanczos4 and IIV.  
 
-openCV lanzcos4  
+## openCV lanzcos4  
 >![image](https://github.com/ZivFung/IIV/blob/master/opencv_lanczos.gif)  
->Please focus on the every edge in the video. We can observe plenty of aliasing effect.
-IIV  
+>Please focus on the every edge in the video. We can observe plenty of aliasing effect.  
+  
+## IIV  
 >![image](https://github.com/ZivFung/IIV/blob/master/IIV.gif)  
 >By contrast, the IIV eliminates most of aliasing effect in the video zoomout result.
 
@@ -29,13 +30,18 @@ The code is realized in the aid of openCV.
 ## Usage
 This repo can directly open with vscode. Then you can run or debug IIV.  
 Also, you can run exe file in windows with arguments:  
->./IIV.exe -f function_num -v video_path -s IIV_windowsize -m horizontal_scale -n vertical_scale -x target_width -y target_height  
->function number detail:  
+>./IIV.exe -f function_number -v video_path -s IIV_windowsize -m horizontal_scale -n vertical_scale -x target_width -y target_height  
+  
+>function_number detail:  
 >>0: directly open opencv window and compare opencv lanczos and IIV result.(Since the code of IIV does not do optimization for speed, it will running to slow)  
 >>1: first do resize for opencv lanczos and IIV, write the result to mp4 format file. Then open opencv window to read two mp4 file and show its contend. (recommend)  
->>2: only do IIV, and play the result with multi thread.
+>>2: only do IIV, and play the result with multi thread.  
+  
 >video_path: the path of target test video.  
 >IIV_windowsize: specify the window size of IIV.  
->horizontal_scale and vertical_scale: specify the resize scale.
->target_width and target_height: specify the target size.
->Note: you can only specify whether the scale or target size.
+>horizontal_scale and vertical_scale: specify the resize scale.  
+>target_width and target_height: specify the target size.  
+>Note: you can only specify whether the scale or target size.  
+   
+>such as:   
+>./IIV.exe -f 1 -v 1_IIV.mp4 -s 8 -m 0.2 -n 0.2
