@@ -11,7 +11,7 @@
                 "${fileDirname}\\main.cpp",
                 "${fileDirname}\\iiv.cpp",
                 "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "${fileDirname}\\IIV.exe",
                 "-I",
                 "F:\\Study\\opencv\\mingw64_build\\install\\include",
                 "-I",
