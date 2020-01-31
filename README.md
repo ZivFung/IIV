@@ -13,11 +13,11 @@ As for zoomin function, the formula of IIV is still `sin(Π*x)/Π*x`
 >Interpolation algorithm's zoomin effect is much worse than super-resolution algorithm.
 
 # Compare the IIV with openCV resize function in zoomout condition
-I choose a video with 1920*1080 size, 30FPS to do the experiment. The zoomout sacle for both the vertical and horizontal is 0.2. The window size of opencv lanzcos and IIV is both 8*8. This is the result of opencv lanczos4 and IIV.  
+I choose a video with 1920*1080 size, 30FPS to do the experiment. The zoomout sacle for both the vertical and horizontal is 0.2. The window size of opencv lanzcos and IIV is both 8 * 8. This is the result of opencv lanczos4 and IIV.  
 
 openCV lanzcos4  
 >![image](https://github.com/ZivFung/IIV/blob/master/opencv_lanczos.gif)  
->Please focus on the every edge in the video. We can observe plenty of aliasing effect.
+>Please focus on the every edge in the video. We can observe plenty of aliasing effect.  
 IIV  
 >![image](https://github.com/ZivFung/IIV/blob/master/IIV.gif)  
 >By contrast, the IIV eliminates most of aliasing effect in the video zoomout result.
