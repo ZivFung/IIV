@@ -42,3 +42,6 @@ Also, you can run exe file in windows with arguments:
 >horizontal_scale and vertical_scale: specify the resize scale.  
 >target_width and target_height: specify the target size.  
 >Note: you can only specify whether the scale or target size.  
+   
+>such as:   
+>./IIV.exe -f 1 -v 1_IIV.mp4 -s 8 -m 0.2 -n 0.2
