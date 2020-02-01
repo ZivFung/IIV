@@ -18,6 +18,8 @@
                 "F:\\Study\\opencv\\mingw64_build\\install\\include\\opencv2",
                 "-L",
                 "F:\\Study\\opencv\\mingw64_build\\install\\x64\\mingw\\lib",
+                // "-L",
+                // "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v10.2\\lib\\x64",
                 "-l",
                 "opencv_img_hash420",
                 "-l",

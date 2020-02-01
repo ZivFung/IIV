@@ -2,7 +2,7 @@
  * @Author: ZivFung 
  * @Date: 2020-01-30 22:32:31 
  * @Last Modified by: ZivFung
- * @Last Modified time: 2020-02-01 01:07:58 
+ * @Last Modified time: 2020-02-01 16:13:35
  */
 
 #include "main.h"
@@ -273,6 +273,35 @@ void testResultPlay(){
     test0.join();
 }
 
+void testOpencvSR(std::string vid_name){
+    cv::Ptr<cv::superres::SuperResolution> superRes;
+    superRes = cv::superres::createSuperResolution_BTVL1();
+    cv::Ptr<cv::superres::DenseOpticalFlowExt> of = cv::superres::createOptFlow_Farneback();
+
+    superRes->setOpticalFlow( of );
+    superRes->setScale(2);
+    superRes->setIterations(10);
+    superRes->setTemporalAreaRadius(8);
+
+    cv::Ptr<cv::superres::FrameSource> frameSource;
+    frameSource = cv::superres::createFrameSource_Video(vid_name);
+    cv::Mat frame;
+    
+    superRes->setInput(frameSource);
+    cv::Mat reResult;
+    cv::Mat IIVResult;
+    cv::Size s;
+    while(1){
+        superRes->nextFrame(reResult);
+        frameSource->nextFrame(frame);
+        ImgInterp4Video::IIVresize(frame, IIVResult, s, 2, 2, 8);
+        cv::imshow("Super Resolution", reResult);
+        cv::imshow("IIV", IIVResult);
+        cv::waitKey(1000);
+    }
+    
+}
+
 static struct option const long_opts[] = {
         {"function",            required_argument,  NULL,   'f'},
         {"video_path",   		required_argument,  NULL,   'v'},
@@ -382,16 +411,7 @@ int main(int argc, char **argv){
         }
 
     }
-    // cv::VideoCapture vid[EXP_ALGORITHM_NUM];
-    // for(int i = 0; i< EXP_ALGORITHM_NUM; i++)
-        // vid[i].open("F:/Photograph/Games/romeoooo_highlight_19-10-31_21-57-51.mp4");
-        // vid[i].open("F:/Photograph/micromouse/IMG_6792.mov");
-        // vid[i].open("1_IIV.mp4");
 
-    // compareAndWriteVideo(vid, 0.2, 0.2, 8);
-    // normalFunctionCopmpare(vid, 0.2, 0.2, 8);
-    // normalFunctionCopmpare(vid, 1.2, 1.2, 8);
-    // testResultPlay();
     return 0;
 }
 
